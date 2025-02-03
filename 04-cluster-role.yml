@@ -1,0 +1,9 @@
+# clusterrole.yml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cr_full_access
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]

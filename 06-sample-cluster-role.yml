@@ -1,0 +1,54 @@
+# clusterrole.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cr_full_access
+rules:
+- apiGroups: ["*"]
+  resources:
+  - services
+  - pods
+  verbs: 
+  - get
+  - list
+  - watch
+  - delete
+- apiGroups: ["*"]
+  resources:
+  - namespaces
+  - pods/logs
+  - nodes
+  - events
+  - services
+  verbs: 
+  - get
+  - list
+  - watch
+  - patch  
+- apiGroups: 
+  - app
+  - extentions
+  resources:
+  - deployment
+  verbs: 
+  - get
+  - list
+  - watch
+  - patch
+  - delete
+- apiGroups: 
+  - extentions
+  resources:
+  - '*'
+  verbs: 
+  - get
+  - list
+  - watch  
+- apiGroups: 
+  - apps
+  resources:
+  - '*'
+  verbs: 
+  - get
+  - list
+  - watch 
