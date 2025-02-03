@@ -1,0 +1,16 @@
+#rolebinding.yml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: full-access-role-for-eks
+  namespace: develop
+subjects:
+- kind: User
+  name: rajuuser
+  apiGroup: rbac.authorization.k8s.io
+roleRef:                                  ##We can Ref role from EKS Role which we created the above###
+  kind: Role
+  name: eks-full-access                 
+  apiGroup: rbac.authorization.k8s.io
+####Apply the RoleBinding####
+#$kubectl apply -f rolebinding.yaml  
