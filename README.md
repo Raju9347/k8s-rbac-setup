@@ -179,3 +179,5 @@ subjects:
   apiGroup: rbac.authorization.k8s.io
 
 ##################END##########################
+
+#Webhook configuration we can use OPA GateKepeer###
