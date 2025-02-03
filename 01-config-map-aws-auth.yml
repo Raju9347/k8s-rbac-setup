@@ -1,0 +1,18 @@
+#$kubectl edit cm aws-auth -o yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::111111111:role/worker-node-instance-role
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+    - userarn: arn:aws:iam::111111111:role/ssm-role
+      username: eks-write-role
+  mapUsers: |
+    - userarn: arn:aws:iam::111111111:user/rajuuser
+      username: rajuuser
